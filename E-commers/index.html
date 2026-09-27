@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacket Masters — Amber Puffer</title>
+<meta name="description" content="Jacket Masters — premium outerwear designed to make a statement without trying too hard.">
+<!-- Optional web fonts: the page falls back to system fonts when offline -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   ANIMATABLE THEME PROPERTIES
+   Registered colours can be transitioned, so every gradient
+   that uses them morphs smoothly when the variant changes.
+   ========================================================== */
+@property --glow-core   { syntax:'<color>'; inherits:true; initial-value:#ff962a; }
+@property --glow-mid    { syntax:'<color>'; inherits:true; initial-value:#e65a0a; }
+@property --glow-edge   { syntax:'<color>'; inherits:true; initial-value:#5a1e05; }
+@property --bg-1        { syntax:'<color>'; inherits:true; initial-value:#2a1206; }
+@property --bg-2        { syntax:'<color>'; inherits:true; initial-value:#120804; }
+@property --bg-3        { syntax:'<color>'; inherits:true; initial-value:#050302; }
+@property --accent      { syntax:'<color>'; inherits:true; initial-value:#ffa62b; }
+@property --accent-soft { syntax:'<color>'; inherits:true; initial-value:#ffc47a; }
+@property --shadow-color{ syntax:'<color>'; inherits:true; initial-value:#1c0800; }
+
+/* ==========================================================
+   VARIABLES
+   ========================================================== */
+:root{
+  --bg-dark:#0b0705;
+  --accent-orange:#ff6a13;
+  --accent-amber:#ffa62b;
+  --glass:rgba(22,14,10,.46);
+  --glass-strong:rgba(14,9,7,.62);
+  --glass-light:rgba(255,255,255,.07);
+  --glass-border:rgba(255,255,255,.10);
+  --glass-border-strong:rgba(255,255,255,.18);
+  --text-primary:#f7f1ea;
+  --text-secondary:rgba(247,241,234,.62);
+  --text-muted:rgba(247,241,234,.38);
+  --shadow:0 40px 120px -30px rgba(0,0,0,.85), 0 10px 40px -10px rgba(0,0,0,.6);
+
+  /* dynamic scene (JS writes these per product; defaults = Amber) */
+  --glow-core:#ff962a;
+  --glow-mid:#e65a0a;
+  --glow-edge:#5a1e05;
+  --bg-1:#2a1206;
+  --bg-2:#120804;
+  --bg-3:#050302;
+  --accent:#ffa62b;
+  --accent-soft:#ffc47a;
+  --shadow-color:#1c0800;
+
+  --font-display:"Cormorant Garamond","Didot","Bodoni 72","Bodoni MT","Playfair Display",Georgia,serif;
+  --font-ui:"Manrope","Helvetica Neue","Segoe UI",Arial,sans-serif;
+
+  --ease-lux:cubic-bezier(.22,.61,.36,1);
+  --ease-float:cubic-bezier(.45,0,.55,1);
+  --scene-dur:.9s;
+  --radius-xl:36px;
+
+  transition:
+    --glow-core var(--scene-dur) var(--ease-lux),
+    --glow-mid var(--scene-dur) var(--ease-lux),
+    --glow-edge var(--scene-dur) var(--ease-lux),
+    --bg-1 var(--scene-dur) var(--ease-lux),
+    --bg-2 var(--scene-dur) var(--ease-lux),
+    --bg-3 var(--scene-dur) var(--ease-lux),
+    --accent var(--scene-dur) var(--ease-lux),
+    --accent-soft var(--scene-dur) var(--ease-lux),
+    --shadow-color var(--scene-dur) var(--ease-lux);
+}
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-height:100vh;font-family:var(--font-ui);color:var(--text-primary);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+svg{display:block}
+[hidden]{display:none!important}
+:focus-visible{outline:1.5px solid var(--accent);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ==========================================================
+   BACKGROUND
+   ========================================================== */
+body{background-color:var(--bg-3)}
+/* fixed scene layer so the glow stays viewport-sized on tall (mobile) pages */
+.scene{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 45% 55% at 50% 52%, color-mix(in srgb, var(--glow-core) 55%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 75% at 50% 55%, color-mix(in srgb, var(--glow-mid) 55%, transparent) 0%, transparent 72%),
+    radial-gradient(ellipse 60% 50% at 12% 8%, color-mix(in srgb, var(--glow-edge) 55%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 92% 95%, color-mix(in srgb, var(--glow-edge) 60%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 120% 100% at 50% 50%, var(--bg-1) 0%, var(--bg-2) 55%, var(--bg-3) 100%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 90% 80% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%);
+}
+body::after{
+  content:"";position:fixed;inset:-50%;pointer-events:none;z-index:0;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================
+   MAIN CONTAINER
+   ========================================================== */
+.page{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2.5vh 0}
+.showroom{
+  position:relative;isolation:isolate;
+  width:96vw;max-width:1680px;min-height:92vh;
+  display:flex;flex-direction:column;
+  border-radius:var(--radius-xl);
+  background:
+    radial-gradient(ellipse 38% 55% at 50% 56%, color-mix(in srgb, var(--glow-core) 30%, transparent) 0%, color-mix(in srgb, var(--glow-mid) 12%, transparent) 45%, transparent 75%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-2) 62%, transparent) 0%, color-mix(in srgb, var(--bg-3) 74%, transparent) 100%);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,.06), inset 0 0 120px rgba(0,0,0,.35);
+  backdrop-filter:blur(22px) saturate(130%);
+  -webkit-backdrop-filter:blur(22px) saturate(130%);
+  overflow:hidden;
+}
+.showroom::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:linear-gradient(160deg, rgba(255,255,255,.06) 0%, transparent 28%, transparent 72%, color-mix(in srgb, var(--accent) 6%, transparent) 100%);
+}
+
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+.nav{
+  position:relative;z-index:20;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;
+  padding:26px clamp(20px,3vw,48px) 0;
+}
+.logo{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.32em;text-transform:uppercase;white-space:nowrap}
+.logo-mark{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--glass-border-strong);background:var(--glass-light)}
+.logo-mark svg{width:14px;height:14px}
+.logo span{font-weight:400;color:var(--text-secondary)}
+
+.nav-pill{
+  display:flex;gap:4px;padding:5px;border-radius:999px;
+  background:var(--glass-strong);border:1px solid var(--glass-border);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 8px 30px -10px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.nav-link{
+  display:block;padding:10px 20px;border-radius:999px;white-space:nowrap;
+  font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-secondary);
+  transition:background-color .45s var(--ease-lux), color .45s var(--ease-lux);
+}
+.nav-link:hover{background:rgba(255,255,255,.07);color:var(--text-primary)}
+.nav-link.is-active{background:rgba(255,255,255,.9);color:#140b06;box-shadow:0 4px 18px -6px rgba(255,255,255,.35)}
+
+.nav-actions{display:flex;justify-content:flex-end;align-items:center;gap:10px}
+.icon-btn{
+  position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  background:var(--glass-light);border:1px solid var(--glass-border);
+  transition:transform .45s var(--ease-lux), background-color .45s var(--ease-lux), border-color .45s var(--ease-lux);
+}
+.icon-btn svg{width:18px;height:18px}
+.icon-btn:hover{transform:scale(1.08);background:rgba(255,255,255,.12);border-color:var(--glass-border-strong)}
+.icon-btn:active{transform:scale(.94)}
+.icon-btn[aria-expanded="true"]{background:rgba(255,255,255,.16);border-color:var(--glass-border-strong)}
+.icon-btn.bounce{animation:bagBounce .7s var(--ease-lux)}
+.cart-count{
+  position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;
+  display:grid;place-items:center;font-size:10px;font-weight:700;
+  background:var(--accent);color:#1a0c03;box-shadow:0 0 0 2px #140a05;
+}
+.cart-count.bump{animation:bump .6s var(--ease-lux)}
+
+/* ==========================================================
+   CART PANEL
+   ========================================================== */
+.cart-panel{
+  position:absolute;top:calc(100% + 12px);right:clamp(20px,3vw,48px);
+  width:min(380px, calc(100vw - 40px));max-height:min(72vh, 600px);
+  display:flex;flex-direction:column;
+  border-radius:26px;padding:22px;
+  background:linear-gradient(180deg, color-mix(in srgb, var(--bg-1) 94%, #000), color-mix(in srgb, var(--bg-3) 96%, #000));
+  border:1px solid var(--glass-border-strong);
+  backdrop-filter:blur(26px) saturate(140%);-webkit-backdrop-filter:blur(26px) saturate(140%);
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.08);
+  opacity:0;transform:translateY(-10px) scale(.98);transform-origin:top right;
+  transition:opacity .35s var(--ease-lux), transform .45s var(--ease-lux);
+}
+.cart-panel.is-open{opacity:1;transform:none}
+.cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cart-title{font-family:var(--font-display);font-size:26px;font-weight:500;line-height:1}
+.cart-title small{font-family:var(--font-ui);font-size:11px;letter-spacing:.18em;color:var(--text-muted);margin-left:8px;vertical-align:middle}
+.cart-close{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--glass-border);transition:background-color .3s, transform .3s}
+.cart-close:hover{background:rgba(255,255,255,.1);transform:rotate(90deg)}
+.cart-close svg{width:14px;height:14px}
+.cart-items{overflow-y:auto;margin:0 -6px;padding:0 6px;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin}
+.cart-item{
+  display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;
+  padding:12px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--glass-border);
+  animation:fadeUp .45s var(--ease-lux);
+}
+.swatch{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--j-mid) 35%, transparent), rgba(255,255,255,.03) 72%)}
+.swatch svg{width:40px;height:40px}
+.ci-name{font-size:14px;font-weight:600;line-height:1.2}
+.ci-meta{font-size:11px;letter-spacing:.08em;color:var(--text-secondary);margin-top:3px}
+.ci-controls{display:flex;align-items:center;gap:12px;margin-top:8px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--glass-border);border-radius:999px}
+.qty button{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:14px;color:var(--text-secondary);transition:color .25s, background-color .25s}
+.qty button:hover{color:var(--text-primary);background:rgba(255,255,255,.08)}
+.qty output{min-width:18px;text-align:center;font-size:12px;font-weight:600}
+.ci-remove{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);text-decoration:underline;text-underline-offset:3px;transition:color .25s}
+.ci-remove:hover{color:var(--text-primary)}
+.ci-price{font-family:var(--font-display);font-size:22px;align-self:start}
+.cart-empty{padding:26px 6px;text-align:center;color:var(--text-secondary);font-size:13px}
+.cart-empty b{display:block;font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--text-primary);margin-bottom:4px}
+.cart-foot{margin-top:18px;padding-top:16px;border-top:1px solid var(--glass-border);display:flex;flex-direction:column;gap:14px}
+.subtotal{display:flex;justify-content:space-between;align-items:baseline;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-secondary)}
+.subtotal strong{font-family:var(--font-display);font-size:26px;font-weight:500;letter-spacing:0;color:var(--text-primary)}
+.checkout-msg{font-size:12px;line-height:1.55;color:var(--text-secondary);padding:12px 14px;border-radius:14px;
+  background:color-mix(in srgb, var(--accent) 10%, transparent);border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  animation:fadeUp .45s var(--ease-lux)}
+
+/* toast */
+.toast{
+  position:absolute;left:50%;bottom:22px;z-index:30;transform:translate(-50%,16px);opacity:0;pointer-events:none;
+  display:flex;align-items:center;gap:10px;padding:10px 18px 10px 12px;border-radius:999px;white-space:nowrap;
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(14,10,8,.78);border:1px solid var(--glass-border-strong);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  transition:opacity .4s var(--ease-lux), transform .5s var(--ease-lux);
+}
+.toast.is-visible{opacity:1;transform:translate(-50%,0)}
+.toast i{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#150b06}
+.toast i svg{width:12px;height:12px}
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+.hero{
+  flex:1;display:grid;grid-template-columns:28fr 44fr 28fr;
+  gap:clamp(12px,2vw,32px);
+  padding:clamp(20px,3vh,40px) clamp(20px,3vw,48px) clamp(24px,4vh,44px);
+}
+.hero-left,.hero-right{display:flex;flex-direction:column;min-width:0}
+.hero-left{justify-content:space-between;gap:36px}
+
+.arrows{display:flex;align-items:center;gap:10px}
+.arrow-btn{
+  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--glass-border-strong);background:rgba(255,255,255,.03);
+  transition:background-color .4s var(--ease-lux), transform .25s var(--ease-lux), border-color .4s var(--ease-lux);
+}
+.arrow-btn svg{width:16px;height:16px;transition:transform .4s var(--ease-lux)}
+.arrow-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3)}
+.arrow-btn[data-dir="prev"]:hover svg{transform:translateX(-3px)}
+.arrow-btn[data-dir="next"]:hover svg{transform:translateX(3px)}
+.arrow-btn:active,.arrow-btn.is-pressed{transform:scale(.9);background:rgba(255,255,255,.16)}
+.slide-index{display:flex;align-items:center;gap:10px;margin-left:8px;font-size:11px;letter-spacing:.2em;color:var(--text-muted)}
+.slide-index b{color:var(--text-primary);font-weight:600;display:inline-block}
+.slide-index i{display:block;width:34px;height:1px;background:var(--glass-border-strong);position:relative;overflow:hidden}
+.slide-index i::after{content:"";position:absolute;inset:0;background:var(--accent);transform-origin:left;transform:scaleX(var(--progress,.25));transition:transform .7s var(--ease-lux)}
+
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+.headline{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(48px,6vw,96px);line-height:.9;letter-spacing:-.02em;
+  margin:18px 0 26px;
+}
+.headline em{display:block;font-style:italic;color:transparent;
+  background:linear-gradient(100deg,#fff3e2 0%, var(--accent-soft) 55%, var(--accent) 100%);-webkit-background-clip:text;background-clip:text;
+  padding:0 .08em .12em 0;margin-bottom:-.12em}
+.lede{max-width:34ch;font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.7}
+
+.socials{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.socials a{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);transition:color .35s var(--ease-lux)}
+.socials a svg{width:15px;height:15px}
+.socials a:hover{color:var(--text-primary)}
+
+/* ==========================================================
+   PRODUCT
+   Layer stack (outer → inner):
+   .stage (perspective) → .product (float) → .product-tilt
+   (mouse parallax, rAF) → .product-swap (enter/exit) → svg
+   ========================================================== */
+.hero-center{position:relative;display:flex;align-items:center;justify-content:center;min-height:560px}
+.stage{
+  --px:0;--py:0;--dir:1;
+  position:relative;width:100%;max-width:560px;aspect-ratio:500/600;
+  display:flex;align-items:center;justify-content:center;
+  perspective:1400px;
+}
+.stage-word{
+  position:absolute;left:50%;top:44%;z-index:0;
+  transform:translate(-50%,-50%) translate3d(calc(var(--px) * -10px), calc(var(--py) * -6px), 0);
+  font-family:var(--font-display);font-size:clamp(90px,13vw,230px);font-style:italic;letter-spacing:-.03em;line-height:1;white-space:nowrap;
+  color:transparent;-webkit-text-stroke:1px color-mix(in srgb, var(--accent-soft) 16%, transparent);
+  pointer-events:none;user-select:none;
+}
+.stage-glow{
+  position:absolute;left:50%;top:46%;width:92%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:0;border-radius:50%;
+  background:radial-gradient(circle,
+    color-mix(in srgb, var(--glow-core) 75%, transparent) 0%,
+    color-mix(in srgb, var(--glow-mid) 38%, transparent) 32%,
+    color-mix(in srgb, var(--glow-mid) 8%, transparent) 58%, transparent 70%);
+  filter:blur(18px);
+  animation:glowBreath 7s var(--ease-float) infinite;
+}
+/* brief light flare while a product changes */
+.stage-flare{
+  position:absolute;left:50%;top:46%;width:70%;aspect-ratio:1;z-index:0;border-radius:50%;pointer-events:none;
+  transform:translate(-50%,-50%) scale(.8);opacity:0;
+  background:radial-gradient(circle, color-mix(in srgb, var(--accent-soft) 55%, transparent) 0%, transparent 62%);
+  filter:blur(20px);
+  transition:opacity .6s var(--ease-lux), transform .9s var(--ease-lux);
+}
+.stage.product-changing .stage-flare{opacity:.55;transform:translate(-50%,-50%) scale(1.1)}
+.stage-ring{
+  position:absolute;left:50%;top:47%;width:78%;aspect-ratio:1;z-index:0;border-radius:50%;
+  transform:translate(-50%,-50%) translate3d(calc(var(--px) * 6px), calc(var(--py) * 4px), 0);
+  border:1px solid color-mix(in srgb, var(--accent-soft) 12%, transparent);
+  box-shadow:inset 0 0 60px color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.product{
+  position:relative;z-index:2;width:88%;
+  transform-style:preserve-3d;
+  animation:productFloat 7s var(--ease-float) infinite;
+  will-change:transform;
+}
+.product-tilt{transform-style:preserve-3d;will-change:transform}
+.product-swap{
+  transition:opacity .55s var(--ease-lux), transform .7s var(--ease-lux), filter .55s var(--ease-lux);
+}
+.product svg{width:100%;height:auto;overflow:visible;
+  filter:drop-shadow(0 30px 40px rgba(0,0,0,.55)) drop-shadow(0 0 28px color-mix(in srgb, var(--glow-core) 22%, transparent));
+}
+
+/* transition states */
+.stage.product-exit .product-swap,
+.stage.product-exit .reflection-swap{
+  transition:opacity .36s ease-in, transform .38s cubic-bezier(.55,0,.8,.3), filter .36s ease-in;
+  opacity:0;filter:blur(6px);
+  transform:translateX(calc(var(--dir) * -46px)) rotateY(calc(var(--dir) * -14deg)) scale(.94);
+}
+.stage.product-enter .product-swap,
+.stage.product-enter .reflection-swap{
+  transition:none;opacity:0;filter:blur(6px);
+  transform:translateX(calc(var(--dir) * 46px)) rotateY(calc(var(--dir) * 14deg)) scale(.94);
+}
+
+/* floor reflection */
+.reflection{
+  position:absolute;z-index:1;left:6%;width:88%;top:85%;pointer-events:none;
+  opacity:.16;
+  -webkit-mask-image:linear-gradient(180deg, #000 0%, transparent 22%);
+  mask-image:linear-gradient(180deg, #000 0%, transparent 22%);
+  animation:reflectFloat 7s var(--ease-float) infinite;
+}
+.reflection-swap{transform-origin:center;transition:opacity .55s var(--ease-lux), transform .7s var(--ease-lux), filter .55s var(--ease-lux)}
+.reflection svg{width:100%;height:auto;transform:scaleY(-1);filter:blur(1.5px)}
+
+.floor-shadow{
+  position:absolute;z-index:1;left:50%;bottom:3%;width:58%;height:34px;transform:translateX(-50%);border-radius:50%;
+  background:radial-gradient(ellipse at center,
+    color-mix(in srgb, var(--shadow-color) 90%, transparent) 0%,
+    color-mix(in srgb, var(--shadow-color) 40%, transparent) 45%, transparent 72%);
+  filter:blur(6px);
+  animation:shadowFloat 7s var(--ease-float) infinite;
+}
+.floor-shadow::after{ /* coloured ambient bounce light */
+  content:"";position:absolute;left:-30%;right:-30%;top:-60%;bottom:-60%;border-radius:50%;
+  background:radial-gradient(ellipse at center, color-mix(in srgb, var(--glow-mid) 32%, transparent) 0%, transparent 70%);
+  filter:blur(10px);
+}
+.stage.product-changing .floor-shadow::after{opacity:.35}
+.floor-shadow::after{transition:opacity .5s var(--ease-lux)}
+
+.stage-caption{
+  position:absolute;z-index:3;left:50%;bottom:-6px;transform:translateX(-50%);
+  display:flex;gap:14px;align-items:center;white-space:nowrap;
+  font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--text-muted);
+}
+.stage-caption i{width:24px;height:1px;background:var(--glass-border-strong)}
+
+.hotspot{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-secondary);white-space:nowrap;
+  transform:translate3d(calc(var(--px) * 12px), calc(var(--py) * 8px), 0);transition:opacity .4s var(--ease-lux)}
+.hotspot .dot{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.12), 0 0 18px var(--accent-soft)}
+.hotspot .line{width:44px;height:1px;background:linear-gradient(90deg, rgba(255,255,255,.5), rgba(255,255,255,.05))}
+.hotspot--a{top:22%;right:-2%}
+.hotspot--b{bottom:30%;left:-4%;flex-direction:row-reverse}
+.hotspot--b .line{background:linear-gradient(270deg, rgba(255,255,255,.5), rgba(255,255,255,.05))}
+.stage.product-changing .hotspot{opacity:0}
+
+/* ==========================================================
+   PRODUCT INFO
+   ========================================================== */
+.hero-right{align-items:flex-end;justify-content:center}
+.info{width:100%;max-width:340px;display:flex;flex-direction:column;gap:28px}
+.product-name{font-family:var(--font-display);font-size:28px;font-weight:500;line-height:1.1;margin-top:10px}
+.price-row{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.price{font-family:var(--font-display);font-size:clamp(56px,5.4vw,84px);font-weight:400;line-height:.85;letter-spacing:-.02em}
+.price sup{font-size:.42em;vertical-align:top;position:relative;top:.18em;margin-right:2px;font-weight:400}
+.price-meta{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding-bottom:6px}
+.price-old{font-size:17px;color:var(--text-muted);text-decoration:line-through;text-decoration-color:color-mix(in srgb, var(--accent) 70%, transparent);text-decoration-thickness:1.5px}
+.price-tag{font-size:10px;font-weight:700;letter-spacing:.16em;padding:4px 9px;border-radius:999px;color:#1a0c03;background:var(--accent)}
+.divider{height:1px;background:linear-gradient(90deg, var(--glass-border-strong), transparent)}
+
+/* animated text swapping */
+.swap{display:inline-block;transition:opacity .32s var(--ease-lux), transform .5s var(--ease-lux), filter .32s var(--ease-lux)}
+.swap.swap-out{opacity:0;transform:translateY(-14px);filter:blur(4px)}
+.swap.swap-in{transition:none;opacity:0;transform:translateY(14px);filter:blur(4px)}
+
+.label{display:flex;justify-content:space-between;align-items:baseline;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:14px}
+.label a{font-weight:500;letter-spacing:.12em;color:var(--text-muted);text-decoration:underline;text-underline-offset:3px;transition:color .3s}
+.label a:hover{color:var(--text-primary)}
+.label output{color:var(--text-primary);font-weight:500;letter-spacing:.14em}
+
+/* size pills with sliding indicator */
+.sizes{position:relative;display:flex;gap:10px}
+.size-indicator{
+  position:absolute;left:0;top:0;height:48px;width:58px;border-radius:999px;z-index:0;pointer-events:none;
+  background:#f7f1ea;box-shadow:0 8px 24px -8px rgba(255,255,255,.45);
+  transition:transform .55s cubic-bezier(.34,1.3,.5,1), width .4s var(--ease-lux);
+}
+.size-btn{
+  position:relative;z-index:1;
+  width:58px;height:48px;border-radius:999px;font-size:14px;font-weight:600;
+  border:1px solid var(--glass-border-strong);background:rgba(255,255,255,.035);color:var(--text-primary);
+  transition:transform .4s var(--ease-lux), background-color .45s var(--ease-lux), color .35s var(--ease-lux), border-color .45s var(--ease-lux);
+}
+.size-btn:hover{transform:scale(1.06);border-color:rgba(255,255,255,.35)}
+.size-btn:active{transform:scale(.95)}
+.size-btn.is-active{background:transparent;color:#150b06;border-color:transparent;font-weight:700}
+
+/* variant thumbnails */
+.variants{display:flex;gap:10px;padding:6px 4px 8px;margin:-6px -4px -8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.variants::-webkit-scrollbar{display:none}
+.thumb{
+  position:relative;flex:1 0 68px;max-width:84px;aspect-ratio:4/5;border-radius:18px;padding:9px 7px 22px;scroll-snap-align:start;
+  background:radial-gradient(ellipse 80% 70% at 50% 45%, color-mix(in srgb, var(--j-mid) 26%, transparent), rgba(255,255,255,.03) 72%);
+  border:1px solid var(--glass-border);
+  filter:brightness(.82) saturate(.9);
+  transition:transform .45s var(--ease-lux), border-color .45s var(--ease-lux), box-shadow .45s var(--ease-lux), filter .45s var(--ease-lux);
+}
+.thumb-art{display:block;width:100%;height:100%}
+.thumb svg{width:100%;height:100%;filter:drop-shadow(0 6px 8px rgba(0,0,0,.5))}
+.thumb-name{position:absolute;left:0;right:0;bottom:7px;text-align:center;font-size:9px;font-weight:600;letter-spacing:.2em;color:var(--text-muted);transition:color .4s}
+.thumb-check{position:absolute;top:6px;right:6px;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;
+  background:var(--accent);color:#150b06;opacity:0;transform:scale(.5);transition:opacity .35s var(--ease-lux), transform .45s cubic-bezier(.34,1.5,.5,1)}
+.thumb-check svg{width:9px;height:9px}
+.thumb:hover{transform:translateY(-3px) scale(1.04);border-color:var(--glass-border-strong);filter:brightness(1.08)}
+.thumb.is-active{
+  transform:scale(1.06);filter:none;
+  border-color:color-mix(in srgb, var(--accent-soft) 85%, transparent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent), 0 12px 30px -10px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+.thumb.is-active:hover{transform:translateY(-2px) scale(1.08)}
+.thumb.is-active .thumb-name{color:var(--text-primary)}
+.thumb.is-active .thumb-check{opacity:1;transform:scale(1)}
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+.btn-glass{
+  display:inline-flex;align-items:center;gap:14px;align-self:flex-start;
+  padding:8px 8px 8px 26px;border-radius:999px;
+  font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  background:linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.05));
+  border:1px solid var(--glass-border-strong);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px -12px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.12);
+  transition:transform .5s var(--ease-lux), box-shadow .5s var(--ease-lux);
+}
+.btn-glass .btn-arrow{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#f7f1ea;color:#150b06;overflow:hidden}
+.btn-glass .btn-arrow svg{width:16px;height:16px;transition:transform .5s var(--ease-lux)}
+.btn-glass:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 40px -14px color-mix(in srgb, var(--accent) 50%, transparent), inset 0 1px 0 rgba(255,255,255,.18)}
+.btn-glass:hover .btn-arrow svg{transform:translateX(4px)}
+.btn-glass:active{transform:translateY(-1px) scale(.98)}
+.btn-glass.added .btn-arrow svg{animation:arrowShoot .7s var(--ease-lux)}
+
+.btn-solid{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  height:54px;padding:0 10px 0 24px;border-radius:999px;
+  font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  background:#f7f1ea;color:#150b06;
+  transition:transform .45s var(--ease-lux), box-shadow .45s var(--ease-lux);
+}
+.btn-solid .btn-arrow{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#150b06;color:#f7f1ea}
+.btn-solid .btn-arrow svg{width:15px;height:15px;transition:transform .45s var(--ease-lux)}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px color-mix(in srgb, var(--accent-soft) 60%, transparent)}
+#addToBag:hover .btn-arrow svg{transform:rotate(90deg)}
+#checkoutBtn:hover .btn-arrow svg{transform:translateX(3px)}
+.btn-solid:active{transform:scale(.98)}
+.btn-solid[disabled]{opacity:.4;pointer-events:none}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width:1180px){
+  .nav-link{padding:9px 14px;letter-spacing:.12em}
+  .hero{grid-template-columns:30fr 40fr 30fr}
+  .hero-center{min-height:480px}
+  .hotspot{display:none}
+}
+@media (max-width:960px){
+  .nav{grid-template-columns:1fr auto;row-gap:18px}
+  .nav-pill{grid-column:1 / -1;grid-row:2;justify-self:center;max-width:100%;overflow-x:auto;scrollbar-width:none}
+  .nav-pill::-webkit-scrollbar{display:none}
+  .hero{grid-template-columns:1fr 1fr;grid-template-areas:"center center" "left right";row-gap:40px}
+  .hero-center{grid-area:center;min-height:0}
+  .hero-left{grid-area:left}
+  .hero-right{grid-area:right}
+  .stage{max-width:440px}
+}
+@media (max-width:680px){
+  .page{padding:10px 0}
+  .showroom{width:calc(100vw - 20px);border-radius:28px;min-height:auto;
+    background:
+      radial-gradient(ellipse 90% 340px at 50% 330px, color-mix(in srgb, var(--glow-core) 30%, transparent) 0%, color-mix(in srgb, var(--glow-mid) 12%, transparent) 45%, transparent 75%),
+      linear-gradient(180deg, color-mix(in srgb, var(--bg-2) 62%, transparent) 0%, color-mix(in srgb, var(--bg-3) 74%, transparent) 100%)}
+  .nav{padding:18px 16px 0;gap:14px}
+  .logo{font-size:12px;letter-spacing:.24em;gap:10px}
+  .logo span{display:none}
+  .icon-btn{width:40px;height:40px}
+  .nav-pill{justify-self:stretch}
+  .nav-link{padding:9px 13px;font-size:10px}
+  .cart-panel{left:12px;right:12px;width:auto;max-height:calc(100svh - 150px);padding:18px}
+  /* Mobile order: product → arrows → info → headline → CTA → socials */
+  .hero{display:flex;flex-direction:column;padding:12px 16px 28px;gap:30px}
+  .hero-center{order:1}
+  .hero-left{display:contents}
+  .hero-left .arrows{order:2;justify-content:center;margin-top:-10px}
+  .hero-right{order:3;align-items:stretch}
+  .hero-left .copy{order:4}
+  .hero-left .socials{order:5;justify-content:center;padding-top:8px;border-top:1px solid var(--glass-border)}
+  .info{max-width:none}
+  .stage{max-width:360px}
+  .stage-caption{font-size:9px}
+  .headline{font-size:clamp(48px,14vw,72px)}
+  .btn-glass{margin-top:8px}
+  .size-btn,.size-indicator{height:52px}
+  .size-btn{width:64px}
+  .size-indicator{width:64px}
+  .thumb{flex:0 0 76px;max-width:none}
+  .toast{bottom:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}
+
+/* ==========================================================
+   ANIMATIONS
+   ========================================================== */
+/* rise → hold → descend → rest (per-segment easing, no bounce) */
+@keyframes productFloat{
+  0%   {transform:translateY(0)}
+  40%  {transform:translateY(-14px)}
+  55%  {transform:translateY(-14px)}
+  92%  {transform:translateY(0)}
+  100% {transform:translateY(0)}
+}
+@keyframes reflectFloat{
+  0%   {transform:translateY(0);opacity:.16}
+  40%  {transform:translateY(14px);opacity:.1}
+  55%  {transform:translateY(14px);opacity:.1}
+  92%  {transform:translateY(0);opacity:.16}
+  100% {transform:translateY(0);opacity:.16}
+}
+@keyframes shadowFloat{
+  0%   {transform:translateX(-50%) scale(1);opacity:1}
+  40%  {transform:translateX(-50%) scale(.86);opacity:.68}
+  55%  {transform:translateX(-50%) scale(.86);opacity:.68}
+  92%  {transform:translateX(-50%) scale(1);opacity:1}
+  100% {transform:translateX(-50%) scale(1);opacity:1}
+}
+@keyframes glowBreath{
+  0%,100%{opacity:.9;transform:translate(-50%,-50%) scale(1)}
+  47%{opacity:1;transform:translate(-50%,-50%) scale(1.04)}
+}
+@keyframes bump{
+  0%{transform:scale(1)} 35%{transform:scale(1.45)} 100%{transform:scale(1)}
+}
+@keyframes bagBounce{
+  0%{transform:translateY(0)} 30%{transform:translateY(-6px) scale(1.06)} 55%{transform:translateY(0) scale(.97)} 75%{transform:translateY(-2px)} 100%{transform:none}
+}
+@keyframes arrowShoot{
+  0%{transform:translateX(0)} 45%{transform:translateX(26px);opacity:0} 46%{transform:translateX(-26px);opacity:0} 100%{transform:translateX(0);opacity:1}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none}
+}
+.reveal{opacity:0;animation:fadeUp 1.1s var(--ease-lux) forwards}
+.reveal.d1{animation-delay:.1s}.reveal.d2{animation-delay:.25s}.reveal.d3{animation-delay:.4s}.reveal.d4{animation-delay:.55s}
+</style>
+</head>
+
+<body>
+<div class="scene" aria-hidden="true"></div>
+
+<!-- Reusable inline SVG icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="page">
+  <main class="showroom" id="showroom">
+
+    <!-- NAVIGATION -->
+    <header class="nav">
+      <a href="#" class="logo" aria-label="Jacket Masters home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.5 6.5L12 22 8.5 8.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        Jacket&nbsp;Masters <span>®</span>
+      </a>
+
+      <nav class="nav-pill" aria-label="Primary">
+        <a href="#" class="nav-link is-active" aria-current="page">Puffer Jacket</a>
+        <a href="#" class="nav-link">All Products</a>
+        <a href="#" class="nav-link">About Us</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" type="button" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        </button>
+        <button class="icon-btn" type="button" id="cartBtn" aria-label="Open shopping bag, 0 items" aria-haspopup="dialog" aria-expanded="false" aria-controls="cartPanel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+          <span class="cart-count" id="cartCount" aria-hidden="true">0</span>
+        </button>
+      </div>
+
+      <!-- CART PANEL -->
+      <section class="cart-panel" id="cartPanel" role="dialog" aria-modal="false" aria-labelledby="cartTitle" tabindex="-1" hidden>
+        <div class="cart-head">
+          <h2 class="cart-title" id="cartTitle">Your bag<small id="cartTitleCount">0 ITEMS</small></h2>
+          <button class="cart-close" type="button" id="cartClose" aria-label="Close shopping bag"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+        </div>
+        <ul class="cart-items" id="cartItems"></ul>
+        <div class="cart-empty" id="cartEmpty"><b>Your bag is empty</b>Choose a colour and size, then tap “Get the look”.</div>
+        <div class="cart-foot" id="cartFoot" hidden>
+          <div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div>
+          <button class="btn-solid" type="button" id="checkoutBtn">Checkout <span class="btn-arrow"><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button>
+          <p class="checkout-msg" id="checkoutMsg" role="status" hidden>Checkout demo — payment integration will be added later.</p>
+        </div>
+      </section>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="hero" aria-label="Featured product">
+
+      <!-- LEFT: editorial -->
+      <div class="hero-left">
+        <div class="arrows reveal d1">
+          <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous colour">
+            <svg aria-hidden="true"><use href="#i-arrow-left"/></svg>
+          </button>
+          <button class="arrow-btn" type="button" data-dir="next" aria-label="Next colour">
+            <svg aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </button>
+          <div class="slide-index" aria-hidden="true"><b class="swap" id="slideNow">01</b><i id="slideBar"></i><span id="slideTotal">04</span></div>
+        </div>
+
+        <div class="copy reveal d2">
+          <p class="eyebrow">Winter Collection ’26</p>
+          <h1 class="headline">Stand out <em>Without trying</em></h1>
+          <p class="lede">Premium outerwear designed to make a statement without trying too hard.</p>
+          <button type="button" class="btn-glass" id="getLook" style="margin-top:34px">
+            Get the look
+            <span class="btn-arrow"><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </button>
+        </div>
+
+        <ul class="socials reveal d3" aria-label="Social media">
+          <li><a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg>Instagram</a></li>
+          <li><a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M14 3.5v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3.5c.4 2.6 2.2 4.4 5 4.6"/></svg>TikTok</a></li>
+          <li><a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M14.5 21v-8h2.7l.4-3.2h-3.1V7.9c0-.9.3-1.6 1.6-1.6h1.7V3.5c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.2H8.4V13h2.8v8"/></svg>Facebook</a></li>
+        </ul>
+      </div>
+
+      <!-- CENTER: product showcase -->
+      <div class="hero-center">
+        <figure class="stage reveal d1" id="stage" aria-labelledby="stageCaption">
+          <div class="stage-glow" aria-hidden="true"></div>
+          <div class="stage-flare" aria-hidden="true"></div>
+          <div class="stage-ring" aria-hidden="true"></div>
+          <span class="stage-word" aria-hidden="true">Puffer</span>
+
+          <div class="reflection" aria-hidden="true"><div class="reflection-swap jacket-host" id="reflection"></div></div>
+          <div class="floor-shadow" aria-hidden="true"></div>
+
+          <!-- ONE reusable jacket component; colours are CSS variables -->
+          <div class="product" id="product">
+            <div class="product-tilt" id="productTilt">
+              <div class="product-swap jacket-host" id="productArt"></div>
+            </div>
+          </div>
+
+          <div class="hotspot hotspot--a" aria-hidden="true"><span class="dot"></span><span class="line"></span>800 Fill Down</div>
+          <div class="hotspot hotspot--b" aria-hidden="true"><span class="dot"></span><span class="line"></span>Water Repellent</div>
+
+          <figcaption class="stage-caption" id="stageCaption"><span class="swap" id="captionNo">N°01</span><i></i><span class="swap" id="captionName">Amber Puffer</span></figcaption>
+        </figure>
+      </div>
+
+      <!-- RIGHT: product info -->
+      <aside class="hero-right" aria-label="Product details">
+        <div class="info">
+          <div class="reveal d2">
+            <p class="eyebrow">Limited Edition</p>
+            <h2 class="product-name"><span class="swap" id="productName">Amber Puffer</span></h2>
+          </div>
+
+          <div class="price-row reveal d2" aria-live="polite">
+            <p class="price"><span class="swap" id="price"><sup>$</sup>149</span></p>
+            <div class="price-meta">
+              <span class="price-old"><span class="sr-only">Was </span><span class="swap" id="priceOld">$199</span></span>
+              <span class="price-tag"><span class="swap" id="priceTag">−25%</span></span>
+            </div>
+          </div>
+
+          <div class="divider" aria-hidden="true"></div>
+
+          <div class="reveal d3">
+            <div class="label"><span id="sizeLabel">Choose your size</span><a href="#">Size guide</a></div>
+            <div class="sizes" id="sizes" role="radiogroup" aria-labelledby="sizeLabel">
+              <span class="size-indicator" id="sizeIndicator" aria-hidden="true"></span>
+              <button class="size-btn" type="button" role="radio" aria-checked="false" data-size="36">36</button>
+              <button class="size-btn is-active" type="button" role="radio" aria-checked="true" data-size="38">38</button>
+              <button class="size-btn" type="button" role="radio" aria-checked="false" data-size="40">40</button>
+            </div>
+          </div>
+
+          <div class="reveal d3">
+            <div class="label"><span id="colourLabel">Colour</span><output id="colorName">Amber</output></div>
+            <div class="variants" id="variants" role="radiogroup" aria-labelledby="colourLabel"></div>
+          </div>
+
+          <button class="btn-solid reveal d4" type="button" id="addToBag">
+            Add to bag
+            <span class="btn-arrow"><svg aria-hidden="true"><use href="#i-plus"/></svg></span>
+          </button>
+        </div>
+      </aside>
+
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"><i><svg aria-hidden="true"><use href="#i-check"/></svg></i><span id="toastText">Added to bag</span></div>
+  </main>
+</div>
+
+<script>
+/* ==========================================================
+   PRODUCT DATA
+   One entry per variant. Everything visual comes from here:
+   scene colours (theme), jacket colours (visual), prices.
+   ========================================================== */
+const PRODUCTS = [
+  {
+    id:'orange', name:'Amber Puffer', color:'Amber', price:149, oldPrice:199,
+    accentColor:'#ffa62b',
+    theme:{ glowCore:'#ff962a', glowMid:'#e65a0a', glowEdge:'#5a1e05', bg1:'#2a1206', bg2:'#120804', bg3:'#050302', accent:'#ffa62b', accentSoft:'#ffc47a', shadow:'#1c0800' },
+    visual:{ dark:'#3a1302', base:'#b04a0a', mid:'#d96a12', hi:'#ffb14e', spec:.3, trim:'#4d1c04', zip:'#f3e2c4' }
+  },
+  {
+    id:'black', name:'Onyx Puffer', color:'Matte Black', price:159, oldPrice:209,
+    accentColor:'#cfd3db',
+    theme:{ glowCore:'#8e939e', glowMid:'#3a3d45', glowEdge:'#1c1e23', bg1:'#18191c', bg2:'#0b0b0d', bg3:'#030304', accent:'#d3d7df', accentSoft:'#eef0f4', shadow:'#000000' },
+    visual:{ dark:'#050506', base:'#18181b', mid:'#26262a', hi:'#46464c', spec:.12, trim:'#0c0c0e', zip:'#b9b4ab' }
+  },
+  {
+    id:'white', name:'Ivory Puffer', color:'Off-White', price:169, oldPrice:219,
+    accentColor:'#e8dcc6',
+    theme:{ glowCore:'#d8d2c6', glowMid:'#8d877c', glowEdge:'#4a463f', bg1:'#34312c', bg2:'#1a1815', bg3:'#0a0908', accent:'#e8dcc6', accentSoft:'#f7f1e6', shadow:'#2e2b27' },
+    visual:{ dark:'#8c867d', base:'#d3cfc7', mid:'#e6e3dc', hi:'#ffffff', spec:.5, trim:'#b5afa5', zip:'#8a847a' }
+  },
+  {
+    id:'red', name:'Crimson Puffer', color:'Crimson', price:159, oldPrice:199,
+    accentColor:'#ff4d5a',
+    theme:{ glowCore:'#e0283a', glowMid:'#9b0f1f', glowEdge:'#420611', bg1:'#2a060b', bg2:'#140306', bg3:'#060102', accent:'#ff5a64', accentSoft:'#ff9ea2', shadow:'#2a0005' },
+    visual:{ dark:'#2e0304', base:'#8e1115', mid:'#b31d1e', hi:'#ec5a3c', spec:.28, trim:'#4a0708', zip:'#e6d7c3' }
+  }
+];
+
+/* maps product.theme keys → CSS custom properties on :root */
+const THEME_VARS = {
+  glowCore:'--glow-core', glowMid:'--glow-mid', glowEdge:'--glow-edge',
+  bg1:'--bg-1', bg2:'--bg-2', bg3:'--bg-3',
+  accent:'--accent', accentSoft:'--accent-soft', shadow:'--shadow-color'
+};
+
+const state = { index:0, size:'38', cart:[], cartOpen:false };
+
+/* ==========================================================
+   JACKET ARTWORK
+   Built once per instance. All colours are CSS variables
+   (--j-*) so one component serves every variant.
+   ========================================================== */
+function buildJacket(uid, detail = true){
+  const id = s => `${uid}-${s}`;
+
+  const baffle = (x, y, w, h, transform='') => {
+    const t = transform ? ` transform="${transform}"` : '';
+    const rx = Math.min(w, h) * 0.46, ry = h * 0.5;
+    return `<g${t}>
+      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" ry="${ry}" fill="url(#${id('puff')})"/>
+      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" ry="${ry}" fill="url(#${id('form')})"/>
+      ${detail ? `<ellipse cx="${x + w*0.42}" cy="${y + h*0.34}" rx="${w*0.3}" ry="${h*0.11}" fill="#fff" style="opacity:var(--j-spec)" filter="url(#${id('blur')})"/>` : ''}
+    </g>`;
+  };
+
+  const sleeve = (sx, sy, cx, cy) => {
+    const n = 7, dx = cx - sx, dy = cy - sy, L = Math.hypot(dx, dy);
+    const ang = -Math.atan2(dx, dy) * 180 / Math.PI;
+    let out = '';
+    for (let i = n - 1; i >= 0; i--) {
+      const f = (i + .5) / n;
+      const px = sx + dx * f, py = sy + dy * f;
+      const w = 98 - 26 * f, h = L / n + 9;
+      out += baffle(px - w/2, py - h/2, w, h, `rotate(${ang.toFixed(2)} ${px.toFixed(1)} ${py.toFixed(1)})`);
+    }
+    const ex = cx + dx / L * 14, ey = cy + dy / L * 14;
+    out += `<g transform="rotate(${ang.toFixed(2)} ${ex.toFixed(1)} ${ey.toFixed(1)})">
+      <rect x="${ex-31}" y="${ey-12}" width="62" height="24" rx="8" fill="url(#${id('cuff')})"/>
+      <rect x="${ex-31}" y="${ey-12}" width="62" height="24" rx="8" fill="url(#${id('rib')})" opacity=".5"/>
+      <rect x="${ex-31}" y="${ey-12}" width="62" height="24" rx="8" fill="url(#${id('form')})"/>
+    </g>`;
+    return out;
+  };
+
+  const rows = [
+    {y:112, x:154, w:192}, {y:164, x:143, w:214}, {y:216, x:141, w:218},
+    {y:268, x:140, w:220}, {y:320, x:139, w:222}, {y:372, x:137, w:226}, {y:424, x:135, w:230}
+  ];
+  const torso = [];
+  for (let i = rows.length - 1; i >= 0; i--) torso.push(baffle(rows[i].x, rows[i].y, rows[i].w, 60));
+
+  return `
+<svg viewBox="0 0 500 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="${id('puff')}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   style="stop-color:var(--j-dark)"/>
+      <stop offset=".14" style="stop-color:var(--j-base)"/>
+      <stop offset=".42" style="stop-color:var(--j-hi)"/>
+      <stop offset=".62" style="stop-color:var(--j-mid)"/>
+      <stop offset=".86" style="stop-color:var(--j-base)"/>
+      <stop offset="1"   style="stop-color:var(--j-dark)"/>
+    </linearGradient>
+    <linearGradient id="${id('form')}" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"   stop-color="#000" stop-opacity=".62"/>
+      <stop offset=".16" stop-color="#000" stop-opacity=".12"/>
+      <stop offset=".38" stop-color="#fff" stop-opacity=".06"/>
+      <stop offset=".62" stop-color="#000" stop-opacity=".06"/>
+      <stop offset=".86" stop-color="#000" stop-opacity=".38"/>
+      <stop offset="1"   stop-color="#000" stop-opacity=".6"/>
+    </linearGradient>
+    <linearGradient id="${id('cuff')}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" style="stop-color:var(--j-trim)"/>
+      <stop offset=".5" style="stop-color:var(--j-base)"/>
+      <stop offset="1" style="stop-color:var(--j-dark)"/>
+    </linearGradient>
+    <pattern id="${id('rib')}" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="1.4" height="4" fill="#000"/>
+    </pattern>
+    <pattern id="${id('teeth')}" width="8" height="5" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="4" height="2.2" rx=".6" style="fill:var(--j-zip)" opacity=".75"/>
+      <rect x="4" y="2.5" width="4" height="2.2" rx=".6" style="fill:var(--j-zip)" opacity=".55"/>
+    </pattern>
+    <linearGradient id="${id('metal')}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4efe6"/><stop offset=".45" stop-color="#9c958a"/><stop offset=".7" stop-color="#e9e3d8"/><stop offset="1" stop-color="#5f5a52"/>
+    </linearGradient>
+    <radialGradient id="${id('neck')}" cx=".5" cy=".3" r=".7">
+      <stop offset="0" stop-color="#000"/><stop offset=".7" style="stop-color:var(--j-dark)"/><stop offset="1" style="stop-color:var(--j-base)"/>
+    </radialGradient>
+    <linearGradient id="${id('fall')}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/>
+    </linearGradient>
+    <filter id="${id('blur')}" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="3.2"/></filter>
+    <filter id="${id('lift')}" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity=".55"/>
+    </filter>
+  </defs>
+
+  <g class="jk-sleeves">
+    ${sleeve(170, 136, 98, 452)}
+    ${sleeve(330, 136, 402, 452)}
+  </g>
+
+  <g class="jk-torso" ${detail ? `filter="url(#${id('lift')})"` : ''}>
+    ${torso.join('')}
+    <rect x="142" y="478" width="216" height="22" rx="9" fill="url(#${id('cuff')})"/>
+    <rect x="142" y="478" width="216" height="22" rx="9" fill="url(#${id('rib')})" opacity=".45"/>
+    <rect x="142" y="478" width="216" height="22" rx="9" fill="url(#${id('form')})"/>
+  </g>
+
+  <rect x="135" y="330" width="230" height="170" rx="30" fill="url(#${id('fall')})" opacity=".55"/>
+
+  <g stroke-linecap="round" fill="none">
+    <path d="M176 366 L194 446" stroke="#000" stroke-opacity=".7" stroke-width="4"/>
+    <path d="M179 365 L197 445" style="stroke:var(--j-zip)" stroke-opacity=".35" stroke-width="1"/>
+    <path d="M324 366 L306 446" stroke="#000" stroke-opacity=".7" stroke-width="4"/>
+    <path d="M321 365 L303 445" style="stroke:var(--j-zip)" stroke-opacity=".35" stroke-width="1"/>
+  </g>
+
+  <g class="jk-collar" ${detail ? `filter="url(#${id('lift')})"` : ''}>
+    ${baffle(168, 84, 164, 44)}
+    ${baffle(176, 48, 148, 44)}
+    <ellipse cx="250" cy="54" rx="64" ry="12" fill="url(#${id('neck')})"/>
+    <path d="M186 54 Q250 70 314 54" fill="none" style="stroke:var(--j-hi)" stroke-opacity=".35" stroke-width="1.2"/>
+  </g>
+
+  <g class="jk-zip">
+    <rect x="245" y="52" width="10" height="448" rx="2" fill="#000" opacity=".55"/>
+    <rect x="246.5" y="52" width="7" height="448" fill="url(#${id('teeth')})"/>
+    <line x1="250" y1="52" x2="250" y2="500" stroke="#000" stroke-opacity=".4" stroke-width=".8"/>
+    <rect x="243" y="150" width="14" height="20" rx="4" fill="url(#${id('metal')})"/>
+    <rect x="245.5" y="166" width="9" height="30" rx="4.5" fill="url(#${id('metal')})" stroke="#000" stroke-opacity=".3" stroke-width=".6"/>
+    <rect x="248" y="176" width="4" height="13" rx="2" fill="#000" opacity=".55"/>
+  </g>
+
+  <g transform="translate(288 196)">
+    <rect width="34" height="15" rx="3" fill="#000" opacity=".35"/>
+    <rect x=".5" y=".5" width="33" height="14" rx="2.6" fill="none" style="stroke:var(--j-zip)" stroke-opacity=".5" stroke-width=".8"/>
+    <text x="17" y="10.6" text-anchor="middle" font-family="Arial,sans-serif" font-size="7.5" font-weight="700" letter-spacing="1.4" style="fill:var(--j-zip)" opacity=".85">JM</text>
+  </g>
+</svg>`;
+}
+
+/* apply a product's jacket colours to any element hosting a jacket */
+function paintJacket(el, visual){
+  el.style.setProperty('--j-dark',  visual.dark);
+  el.style.setProperty('--j-base',  visual.base);
+  el.style.setProperty('--j-mid',   visual.mid);
+  el.style.setProperty('--j-hi',    visual.hi);
+  el.style.setProperty('--j-spec',  visual.spec);
+  el.style.setProperty('--j-trim',  visual.trim);
+  el.style.setProperty('--j-zip',   visual.zip);
+}
+
+/* ==========================================================
+   HELPERS
+   ========================================================== */
+const $  = (s, c=document) => c.querySelector(s);
+const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+const money = n => `$${n.toLocaleString('en-US')}`;
+const pad2 = n => String(n).padStart(2, '0');
+const discount = p => `−${Math.round((1 - p.price / p.oldPrice) * 100)}%`;
+const wrap = (i, n) => ((i % n) + n) % n;               // modular indexing
+const reflow = el => void el.offsetWidth;
+
+/* animated text swap: slide/fade out → update → slide/fade in */
+function swapText(el, html){
+  if (el.innerHTML === html) return;
+  clearTimeout(el._swapT);
+  el.classList.remove('swap-in');
+  el.classList.add('swap-out');
+  el._swapT = setTimeout(() => {
+    el.innerHTML = html;
+    el.classList.remove('swap-out');
+    el.classList.add('swap-in');
+    reflow(el);
+    el.classList.remove('swap-in');
+  }, 280);
+}
+
+/* ==========================================================
+   ELEMENTS
+   ========================================================== */
+const root       = document.documentElement;
+const stage      = $('#stage');
+const productArt = $('#productArt');
+const reflection = $('#reflection');
+const tilt       = $('#productTilt');
+const variantsEl = $('#variants');
+
+/* ==========================================================
+   RENDER — jacket + thumbnails from data
+   ========================================================== */
+productArt.innerHTML = buildJacket('main');
+reflection.innerHTML = buildJacket('refl', false);
+
+variantsEl.innerHTML = PRODUCTS.map((p, i) => `
+  <button class="thumb" type="button" role="radio" aria-checked="false" data-index="${i}"
+          aria-label="${p.color} — ${p.name}, ${money(p.price)}. Shortcut: ${i + 1}" tabindex="-1">
+    <span class="thumb-art">${buildJacket('th' + i, false)}</span>
+    <span class="thumb-check" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+    <span class="thumb-name" aria-hidden="true">${p.id === 'orange' ? 'AMBER' : p.id.toUpperCase()}</span>
+  </button>`).join('');
+$$('.thumb').forEach((t, i) => paintJacket(t, PRODUCTS[i].visual));
+$('#slideTotal').textContent = pad2(PRODUCTS.length);
+
+/* ==========================================================
+   PRODUCT SWITCHING — one reusable system
+   ========================================================== */
+let switchToken = 0;
+
+function applyTheme(p){
+  for (const [key, cssVar] of Object.entries(THEME_VARS)) root.style.setProperty(cssVar, p.theme[key]);
+}
+
+function updateUI(p, i, animate){
+  const set = animate ? swapText : (el, html) => { el.innerHTML = html; };
+  set($('#productName'), p.name);
+  set($('#price'), `<sup>$</sup>${p.price}`);
+  set($('#priceOld'), money(p.oldPrice));
+  set($('#priceTag'), discount(p));
+  set($('#captionNo'), `N°${pad2(i + 1)}`);
+  set($('#captionName'), p.name);
+  set($('#slideNow'), pad2(i + 1));
+  $('#colorName').textContent = p.color;
+  $('#slideBar').style.setProperty('--progress', (i + 1) / PRODUCTS.length);
+  document.title = `Jacket Masters — ${p.name}`;
+
+  $$('.thumb').forEach((t, ti) => {
+    const on = ti === i;
+    t.classList.toggle('is-active', on);
+    t.setAttribute('aria-checked', on);
+    t.tabIndex = on ? 0 : -1;
+  });
+}
+
+function selectProduct(nextIndex, dir){
+  nextIndex = wrap(nextIndex, PRODUCTS.length);
+  if (nextIndex === state.index) return;
+  if (dir === undefined) dir = nextIndex > state.index ? 1 : -1;
+
+  const p = PRODUCTS[nextIndex];
+  const token = ++switchToken;
+  state.index = nextIndex;
+
+  // 1. scene + UI start immediately (background, glow, shadow, accent morph over --scene-dur)
+  stage.style.setProperty('--dir', dir);
+  stage.classList.add('product-changing', 'product-exit');
+  applyTheme(p);
+  updateUI(p, nextIndex, true);
+
+  // 2. once the old jacket has left, recolour and bring the new one in
+  setTimeout(() => {
+    if (token !== switchToken) return;
+    paintJacket(productArt, p.visual);
+    paintJacket(reflection, p.visual);
+    stage.classList.remove('product-exit');
+    stage.classList.add('product-enter');
+    reflow(productArt);
+    stage.classList.remove('product-enter');
+    setTimeout(() => { if (token === switchToken) stage.classList.remove('product-changing'); }, 600);
+  }, 380);
+}
+
+const nextProduct = () => selectProduct(state.index + 1, 1);
+const prevProduct = () => selectProduct(state.index - 1, -1);
+
+/* initial state (no animation) */
+(function init(){
+  const p = PRODUCTS[state.index];
+  applyTheme(p);
+  paintJacket(productArt, p.visual);
+  paintJacket(reflection, p.visual);
+  updateUI(p, state.index, false);
+})();
+
+/* ==========================================================
+   INTERACTIONS
+   ========================================================== */
+
+// Navigation pill
+$$('.nav-link').forEach(link => link.addEventListener('click', e => {
+  e.preventDefault();
+  $$('.nav-link').forEach(l => { l.classList.remove('is-active'); l.removeAttribute('aria-current'); });
+  link.classList.add('is-active'); link.setAttribute('aria-current', 'page');
+}));
+
+// Thumbnails (+ roving arrow keys within the group)
+variantsEl.addEventListener('click', e => {
+  const t = e.target.closest('.thumb');
+  if (t) selectProduct(+t.dataset.index);
+});
+
+// Arrows
+function pressFlash(btn){ btn.classList.add('is-pressed'); setTimeout(() => btn.classList.remove('is-pressed'), 180); }
+$$('.arrow-btn').forEach(btn => btn.addEventListener('click', () => {
+  btn.dataset.dir === 'next' ? nextProduct() : prevProduct();
+}));
+
+// Sizes — sliding indicator; selection persists across colours
+const sizeIndicator = $('#sizeIndicator');
+function moveSizeIndicator(){
+  const active = $('.size-btn.is-active');
+  if (!active) return;
+  sizeIndicator.style.width = active.offsetWidth + 'px';
+  sizeIndicator.style.height = active.offsetHeight + 'px';
+  sizeIndicator.style.transform = `translateX(${active.offsetLeft}px)`;
+}
+function selectSize(btn){
+  state.size = btn.dataset.size;
+  $$('.size-btn').forEach(b => {
+    const on = b === btn;
+    b.classList.toggle('is-active', on);
+    b.setAttribute('aria-checked', on);
+    b.tabIndex = on ? 0 : -1;
+  });
+  moveSizeIndicator();
+}
+$$('.size-btn').forEach(btn => {
+  btn.tabIndex = btn.classList.contains('is-active') ? 0 : -1;
+  btn.addEventListener('click', () => selectSize(btn));
+  btn.addEventListener('keydown', e => {           // arrow keys move within the size group
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault(); e.stopPropagation();
+    const list = $$('.size-btn');
+    const n = list[wrap(list.indexOf(btn) + (e.key === 'ArrowRight' ? 1 : -1), list.length)];
+    selectSize(n); n.focus();
+  });
+});
+requestAnimationFrame(moveSizeIndicator);
+window.addEventListener('resize', moveSizeIndicator);
+if (document.fonts) document.fonts.ready.then(moveSizeIndicator);
+
+/* ==========================================================
+   KEYBOARD NAVIGATION
+   ========================================================== */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && state.cartOpen) { closeCart(true); return; }
+
+  const t = e.target;
+  const typing = t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName);
+  if (typing || e.altKey || e.ctrlKey || e.metaKey) return;
+  if (state.cartOpen && $('#cartPanel').contains(t)) return;
+
+  if (e.key === 'ArrowRight') { e.preventDefault(); nextProduct(); pressFlash($('.arrow-btn[data-dir="next"]')); focusActiveThumb(t); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); prevProduct(); pressFlash($('.arrow-btn[data-dir="prev"]')); focusActiveThumb(t); }
+  else if (/^[1-9]$/.test(e.key) && +e.key <= PRODUCTS.length) selectProduct(+e.key - 1);
+});
+function focusActiveThumb(from){ if (from.closest && from.closest('.thumb')) $('.thumb.is-active').focus(); }
+
+/* ==========================================================
+   MOUSE PARALLAX (desktop + fine pointer only, rAF-driven)
+   ========================================================== */
+const parallaxOK = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 681px) and (prefers-reduced-motion: no-preference)');
+const par = { tx:0, ty:0, x:0, y:0, raf:0 };
+
+function parallaxTick(){
+  par.x += (par.tx - par.x) * 0.075;
+  par.y += (par.ty - par.y) * 0.075;
+  // rotateX from vertical position (±3deg), rotateY from horizontal (±4deg)
+  tilt.style.transform = `rotateX(${(-par.y * 3).toFixed(3)}deg) rotateY(${(par.x * 4).toFixed(3)}deg) translateZ(0)`;
+  stage.style.setProperty('--px', par.x.toFixed(4));
+  stage.style.setProperty('--py', par.y.toFixed(4));
+  if (Math.abs(par.tx - par.x) > 0.0005 || Math.abs(par.ty - par.y) > 0.0005) par.raf = requestAnimationFrame(parallaxTick);
+  else par.raf = 0;                                    // settle → stop the loop
+}
+function kickParallax(){ if (!par.raf) par.raf = requestAnimationFrame(parallaxTick); }
+
+const hero = $('#hero');
+hero.addEventListener('pointermove', e => {
+  if (!parallaxOK.matches || e.pointerType !== 'mouse') return;
+  const r = hero.getBoundingClientRect();
+  par.tx = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width) * 2 - 1));
+  par.ty = Math.max(-1, Math.min(1, ((e.clientY - r.top) / r.height) * 2 - 1));
+  kickParallax();
+});
+hero.addEventListener('pointerleave', () => { par.tx = 0; par.ty = 0; kickParallax(); });
+parallaxOK.addEventListener?.('change', () => { par.tx = 0; par.ty = 0; kickParallax(); });
+
+/* ==========================================================
+   CART
+   ========================================================== */
+const cartBtn   = $('#cartBtn');
+const cartPanel = $('#cartPanel');
+const cartCount = $('#cartCount');
+
+function addToCart(){
+  const p = PRODUCTS[state.index];
+  const key = `${p.id}-${state.size}`;
+  const line = state.cart.find(l => l.key === key);
+  if (line) line.qty += 1;
+  else state.cart.push({ key, id:p.id, name:p.name, color:p.color, size:state.size, price:p.price, qty:1 });
+
+  renderCart();
+  cartCount.classList.remove('bump'); cartBtn.classList.remove('bounce');
+  reflow(cartCount);
+  cartCount.classList.add('bump'); cartBtn.classList.add('bounce');
+  showToast(`Added — ${p.name} · Size ${state.size}`);
+}
+
+function renderCart(){
+  const qty = state.cart.reduce((s, l) => s + l.qty, 0);
+  const subtotal = state.cart.reduce((s, l) => s + l.qty * l.price, 0);
+  cartCount.textContent = qty;
+  cartBtn.setAttribute('aria-label', `Open shopping bag, ${qty} item${qty === 1 ? '' : 's'}`);
+  $('#cartTitleCount').textContent = `${qty} ITEM${qty === 1 ? '' : 'S'}`;
+  $('#cartSubtotal').textContent = money(subtotal);
+  $('#cartEmpty').hidden = qty > 0;
+  $('#cartFoot').hidden = qty === 0;
+  if (qty === 0) $('#checkoutMsg').hidden = true;
+
+  const list = $('#cartItems');
+  list.innerHTML = state.cart.map(l => `
+    <li class="cart-item" data-key="${l.key}">
+      <span class="swatch" data-pid="${l.id}">${buildJacket('cart-' + l.key, false)}</span>
+      <div>
+        <p class="ci-name">${l.name}</p>
+        <p class="ci-meta">${l.color} · Size ${l.size}</p>
+        <div class="ci-controls">
+          <span class="qty">
+            <button type="button" data-act="dec" aria-label="Decrease quantity of ${l.name}, size ${l.size}">−</button>
+            <output aria-label="Quantity">${l.qty}</output>
+            <button type="button" data-act="inc" aria-label="Increase quantity of ${l.name}, size ${l.size}">+</button>
+          </span>
+          <button type="button" class="ci-remove" data-act="remove" aria-label="Remove ${l.name}, size ${l.size}">Remove</button>
+        </div>
+      </div>
+      <span class="ci-price">${money(l.price * l.qty)}</span>
+    </li>`).join('');
+  $$('.swatch', list).forEach(s => paintJacket(s, PRODUCTS.find(p => p.id === s.dataset.pid).visual));
+}
+
+$('#cartItems').addEventListener('click', e => {
+  const btn = e.target.closest('button[data-act]');
+  if (!btn) return;
+  const key = btn.closest('.cart-item').dataset.key;
+  const line = state.cart.find(l => l.key === key);
+  if (btn.dataset.act === 'inc') line.qty += 1;
+  if (btn.dataset.act === 'dec') line.qty -= 1;
+  if (btn.dataset.act === 'remove' || line.qty <= 0) state.cart = state.cart.filter(l => l.key !== key);
+  renderCart();
+  // keep keyboard focus inside the panel
+  const again = $(`.cart-item[data-key="${key}"] button[data-act="${btn.dataset.act}"]`);
+  (again || $('#cartClose')).focus();
+});
+
+function openCart(){
+  state.cartOpen = true;
+  cartPanel.hidden = false;
+  reflow(cartPanel);
+  cartPanel.classList.add('is-open');
+  cartBtn.setAttribute('aria-expanded', 'true');
+  cartPanel.focus({ preventScroll:true });
+}
+function closeCart(returnFocus){
+  if (!state.cartOpen) return;
+  state.cartOpen = false;
+  cartPanel.classList.remove('is-open');
+  cartBtn.setAttribute('aria-expanded', 'false');
+  setTimeout(() => { if (!state.cartOpen) cartPanel.hidden = true; }, 380);
+  if (returnFocus) cartBtn.focus();
+}
+cartBtn.addEventListener('click', () => state.cartOpen ? closeCart() : openCart());
+$('#cartClose').addEventListener('click', () => closeCart(true));
+document.addEventListener('pointerdown', e => {
+  if (state.cartOpen && !cartPanel.contains(e.target) && !cartBtn.contains(e.target)) closeCart();
+});
+$('#checkoutBtn').addEventListener('click', () => {
+  const msg = $('#checkoutMsg');
+  msg.hidden = true; reflow(msg); msg.hidden = false;
+});
+
+// "Get the look" + "Add to bag" both add the current selection
+$('#getLook').addEventListener('click', e => {
+  const b = e.currentTarget;
+  b.classList.remove('added'); reflow(b); b.classList.add('added');
+  addToCart();
+});
+$('#addToBag').addEventListener('click', addToCart);
+
+// Toast
+let toastT;
+function showToast(text){
+  $('#toastText').textContent = text;
+  const t = $('#toast');
+  t.classList.add('is-visible');
+  clearTimeout(toastT);
+  toastT = setTimeout(() => t.classList.remove('is-visible'), 2200);
+}
+
+renderCart();
+
+// Placeholder links should not jump
+$$('a[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+</script>
+</body>
+</html>
